@@ -1,0 +1,87 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id : 5faf93e97b1136a29e4f
+            client-secret : 46abb031c90ce55b29a7d2c975c8cbb5e0dd5672
+            redirect-uri: "https://localhost/oauth2/callback/github"
+            scope: profile, email
+            authorization-grant-type: authorization_code
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp.gmail.com
+    username: agilesmtp777@gmail.com
+    password: oijsjcwnzjfuwbtc
+    port: '587'
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: agile
+    url: jdbc:mysql://decode-db.c5qy4qwy880z.ap-northeast-2.rds.amazonaws.com:3306/decodedb?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&useLegacyDatetimeCode=false
+    password: agileagile
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: 'true'
+        use_sql_comments: 'false'
+        jdbc:
+          time_zone: Asia/Seoul
+        default_batch_fetch_size: 100
+  data:
+    redis:
+      host: localhost
+      port: 6379
+    password: agileagile777
+  elasticsearch:
+    uris: http://i10a507.p.ssafy.io:8200
+    username: elastic
+    password: elastic
+
+server:
+  servlet:
+    context-path: /decode
+  port: '80'
+springdoc:
+  swagger-ui:
+    path: /sw
+    operations-sorter: method
+cloud:
+  aws:
+    s3:
+      bucket: ssafy-decode-image-upload
+    credentials:
+      access-key: AKIASZWIAAFBSQ32FKPE
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+jwt:
+  secret: YWdpbGVhZ2lsZWFnaWxlYWdpbGVhZ2lsZWFnaWxlYWdpbGVhZ2lsZWFnaWxlYWdpbGVhZ2lsZWFnaWxlYWdpbGU=
+  access-token-expire-length: 6000000
+  refresh-token-expire-length: 86400000
+logging:
+  level:
+    root: info
+gpt:
+  secret-key: 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
+  url: https://api.openai.com/v1/chat/completions
+domain:
+  cookie:
+    max-age: 2592000
+  url: i10a507.p.ssafy.io
+openvidu:
+  #  url: https://i10a507.p.ssafy.io/ov/
+  url: https://i10a507.p.ssafy.io:8443/
+  secret: encode
