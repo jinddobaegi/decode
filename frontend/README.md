@@ -19,10 +19,10 @@ toast-ui/editor: 3.2.2
 pinia-plugin-persistedstate
 ```
 
-### 1.2 FE 디자인
+### 1.2. FE 디자인
 - Figma
 
-### 1.3 FE 브랜치 전략
+### 1.3. FE 브랜치 전략
 ```
 master
   ├── be-deploy
@@ -47,6 +47,15 @@ master
   - `Feat`: 기능 단위로 독립적인 환경에서 개발하는 브랜치
 - `Feat`에서 개발을 마치면 `fe-develop`에 merge 후 테스트
 - 이상이 없으면 `fe-deploy`에 merge함으로써 배포
+
+### 1.4. 실행 방법
+```
+// 패키지 설치
+npm i -f  // toast ui와 vue3의 호환성 문제로 인해 -f 옵션 필수
+
+// 실행
+npm run serve
+```
 
 <br/>
 <br/>
@@ -170,6 +179,7 @@ frontend
 ### 제선명
 - **UI**
   - 페이지
+    - 메인 페이지
     - 랭킹 페이지
   - 컴포넌트
     - 랭킹 검색창
@@ -186,14 +196,14 @@ frontend
 
 ## 4. 페이지 별 기능 소개
 
-### 메인 페이지
+### 메인 페이지 - `제선명`. `정진영`
 <img src="readmeimg/1_main.png" height="200"/>
 <br/>
 
 - 서비스의 기능과 목적을 알 수 있습니다
 
 
-### 회원가입 / 기술 스택 선택 페이지
+### 회원가입 / 기술 스택 선택 페이지 - `엄세원`
 <img src="readmeimg/2_signup.png" height="200"/>
 <br/>
 
@@ -205,20 +215,20 @@ frontend
 
 - 회원가입을 하면, 자신이 사용하거나 선호하는 기술 스택을 선택할 수 있습니다.
 
-### 로그인 페이지
+### 로그인 페이지 - `엄세원`
 <img src="readmeimg/4_login.png" height="200"/>
 <br/>
 
 - 로그인 페이지입니다. 깃허브 계정을 통한 로그인과 회원가입 또한 가능합니다.
 
-### 질문 게시판 페이지
+### 질문 게시판 페이지 - `정진영`
 <img src="readmeimg/5_board.png" height="200"/>
 <br/>
 
 - 질문 게시판입니다. 코딩하다 마주친 에러나 궁금한 점에 대해 자유롭게 질문을 등록할 수 있습니다.
 - 검색을 통해서 이미 누군가가 올린 질문과 답변을 찾을 수 있습니다.
 
-### 질문 제목 / 질문 생성 페이지
+### 질문 제목 / 질문 생성 페이지 - `정진영`
 <img src="readmeimg/6_question_title_create.png" height="200"/>
 <br/>
 
@@ -232,7 +242,7 @@ frontend
 - 질문은 마크다운 에디터를 통해 원하는 형식으로 입력 가능합니다.
 - 질문 생성이 완료되면, GPT 생성 답변과 Stackoverflow의 유사 질문에 대한 답변을 받을 수 있습니다.
 
-### 질문 상세 페이지
+### 질문 상세 페이지 - `정진영`
 <img src="readmeimg/8_detail.png" height="200"/>
 <br/>
 
@@ -255,20 +265,20 @@ frontend
 
 - 댓글을 생성한 예시입니다.
 
-### 질문 수정 페이지
+### 질문 수정 페이지 - `정진영`
 <img src="readmeimg/11_question_update.png" height="200"/>
 <br/>
 
 - 질문 상세페이지에서 질문을 수정할 수 있습니다.
 
-### 답변 생성
+### 답변 생성 - `정진영`
 <img src="readmeimg/12_answer_create.png" height="200"/>
 <br/>
 
 - 질문 상세 페이지에서 사용자들이 직접 답변을 남길 수 있습니다.
 - 답변 또한 질문과 같이 마크다운 형식으로 작성할 수 있습니다.
 
-### 채팅방 / 화면 공유
+### 채팅방 / 화면 공유 - `서재화`
 <img src="readmeimg/13_chatroom_list.png" height="200"/>
 <br/>
 
@@ -298,13 +308,13 @@ frontend
 
 - 화면 공유를 하는 중에도 음성 대화, 채팅 또한 가능합니다.
 
-### 랭킹 페이지
+### 랭킹 페이지 - `제선명`
 <img src="readmeimg/18_rank.png" height="200"/>
 <br/>
 
 - 사용자의 경험치, 티어, 랭킹을 확인할 수 있습니다.
 
-### 마이 페이지
+### 마이 페이지 - `엄세원`, `박우철`
 <img src="readmeimg/19_mypage.png" height="200"/>
 <br/>
 
@@ -339,27 +349,8 @@ frontend
 
 ## 5. FE 트러블 슈팅
 ### 5.1. 컴포넌트 명칭 오류
-  - 컴포넌트의 명칭이 한 단어로 되어있을 경우 뜨는 오류입니다.
-    > ERROR  Failed to compile with 1 error 오후 3:31:42
-    > 
-    > 
-    > [eslint]
-    > C:\Users\SSAFY\pjt\S10P12A507\frontend\vue-project\src\components\common\Footer.vue
-    > 1:1  error  Component name "Footer" should always be multi-word  vue/multi-word-component-names
-    > 
-    > ✖ 1 problem (1 error, 0 warnings)
-    > 
-    > You may use special comments to disable some warnings.
-    > Use // eslint-disable-next-line to ignore the next line.
-    > Use /* eslint-disable */ to ignore all warnings in a file.
-    > ERROR in [eslint]
-    > C:\Users\SSAFY\pjt\S10P12A507\frontend\vue-project\src\components\common\Footer.vue
-    > 1:1  error  Component name "Footer" should always be multi-word  vue/multi-word-component-names
-    > 
-    > ✖ 1 problem (1 error, 0 warnings)
-    > 
-    > webpack compiled with 1 error
-    >
+
+  - 컴포넌트의 명칭이 한 단어로 되어있을 경우 오류가 뜹니다.
   - Vue에서는 컴포넌트명을 2가지 이상의 단어로 조합하기를 권장하고 있습니다.
   - 해결방안: ESLint 설정을 `vue.config.js` 파일에서 `lintOnSave:false`로 변경해주고 서버를 재기동했습니다.
 
