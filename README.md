@@ -1,4 +1,4 @@
-![image](/uploads/a12f1242bf9e58fd3012a1529504d97f/image.png)
+![image](/uploads/517fb310b0b1f402ef5c1576aa3a41fd/image.png){: width="800"}
 
 
 
