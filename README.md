@@ -61,3 +61,25 @@
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 
 ## :balloon: Service Layout
+| ![1_main](/uploads/8f7dfe10f2526c39a2899f92357e298e/1_main.gif)|![4_login](/uploads/913e903bebb8f2bec7a9e57a07b06972/4_login.gif)|
+|:---------------------------------------------------------:|:-------------------------------------------------------:|
+|                     Main Page                             |                     Login                               |
+
+| ![16_1_mypage_tab](/uploads/ba1350c725389994c98e189aefdd3eb0/16_1_mypage_tab.gif) | ![15_rank_search](/uploads/cb12a50e22becbf3a815eb7000bb8928/15_rank_search.gif) |
+|:---------------------------------------------------------:|:-------------------------------------------------------:|
+|                     Profile                               |                      Ranking                            |
+
+|![6_create_title](/uploads/c2cf993236a6d1642f4f7a892e3fb9d6/6_create_title.gif)|![7_2_gpt_sof_answer](/uploads/fc8031de37820cb21e2a907f6d81facd/7_2_gpt_sof_answer.gif)|
+|:---------------------------------------------------------:|:-------------------------------------------------------:|
+|                     Question                              |                       Answer                            |
+
+|![5_board_search](/uploads/efa29921c5e5a8db5522f3af5071fd29/5_board_search.gif)|![14_2_screen_share](/uploads/8179230f2f1a90516e6efa0f0dd8ebb0/14_2_screen_share.gif)|
+|:---------------------------------------------------------:|:-------------------------------------------------------:|
+|                     Search                                |                     Screen Share                        |
+
+||
+|:---------------------------------------------------------:|
+|                          Chat                             |
+
+
+
