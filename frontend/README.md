@@ -93,7 +93,7 @@ frontend
     - 질문 / 답변 생성 페이지
     - 질문 / 답변 수정 페이지
   - 컴포넌트
-    - 네비게이션 바
+    - Navigation bar
     - 질문 검색 창
     - 마크다운 에디터: 질문 / 답변 작성 / 수정 시 사용(Toast Editor)
     - 마크다운 뷰어: 질문 / 답변 출력(Toast Viewer)
@@ -123,7 +123,7 @@ frontend
     - 마이페이지
     - 회원정보 수정 페이지
   - 컴포넌트
-    - 하단 바
+    - Footer bar
     - 로그인 form
     - 회원가입 form
     - 회원정보
@@ -139,6 +139,8 @@ frontend
   - 권한
     - 특정 페이지 로그인 없이 접근 제한 설정
     - 유효하지 않은 경로 접근 404 페이지 설정
+  - 기타
+    - 마크다운 에디터 폰트 플러그인
 
 
 ### 서재화
@@ -335,6 +337,117 @@ frontend
 <br/>
 
 
-## 5. 트러블 슈팅
-- 이슈 1
-- 이슈 2
+## 5. FE 트러블 슈팅
+### 5.1. 컴포넌트 명칭 오류
+  - 컴포넌트의 명칭이 한 단어로 되어있을 경우 뜨는 오류입니다.
+    > ERROR  Failed to compile with 1 error 오후 3:31:42
+    > 
+    > 
+    > [eslint]
+    > C:\Users\SSAFY\pjt\S10P12A507\frontend\vue-project\src\components\common\Footer.vue
+    > 1:1  error  Component name "Footer" should always be multi-word  vue/multi-word-component-names
+    > 
+    > ✖ 1 problem (1 error, 0 warnings)
+    > 
+    > You may use special comments to disable some warnings.
+    > Use // eslint-disable-next-line to ignore the next line.
+    > Use /* eslint-disable */ to ignore all warnings in a file.
+    > ERROR in [eslint]
+    > C:\Users\SSAFY\pjt\S10P12A507\frontend\vue-project\src\components\common\Footer.vue
+    > 1:1  error  Component name "Footer" should always be multi-word  vue/multi-word-component-names
+    > 
+    > ✖ 1 problem (1 error, 0 warnings)
+    > 
+    > webpack compiled with 1 error
+    >
+  - Vue에서는 컴포넌트명을 2가지 이상의 단어로 조합하기를 권장하고 있습니다.
+  - 해결방안: ESLint 설정을 `vue.config.js` 파일에서 `lintOnSave:false`로 변경해주고 서버를 재기동했습니다.
+
+    ```javascript
+    const { defineConfig } = require('@vue/cli-service');
+    module.exports = defineConfig({
+      transpileDependencies: true,
+      lintOnSave: false,
+    });
+    ```
+
+### 5.2. port 충돌
+  - FE와 BE 서버가 함께 켜지지 않는 문제가 발생했습니다.
+  - 같은 포트를 사용하고 있는 것을 발견하였습니다.
+  - 해결방안: FE의 포트 번호를 변경하였습니다.
+
+### 5.3. router 관련 에러
+  - `'/router'`의 `router.js`를 읽어들이는 과정에서 오류 발생하였습니다.
+  - 파일명이 `index.js`였으면 해당 경로 사용가능하지만, 파일명이 `router.js`라서 생긴 오류였습니다.
+  - 해결방안: 파일명을 `'index.js'`로 바꿔서 해결하였습니다.
+
+### 5.4. 이미지 경로 문제
+  - vue-cli 프로젝트에서 src > assets 폴더에 있는 이미지 경로를 불러오지 못하는 현상이 있었습니다.
+  - 일반적인 vue 프로젝트와 다른 방식으로 이미지를 불러와야 한다는 사실을 알게 되었습니다.
+  - 해결방안: 정적 파일에 접근할 경우 Web Server 파일 접근 방식을 이용할 수 있습니다.
+  ```html
+  <img src="./LogoDecode3.png" alt="로고">
+  ```
+  - vue - cli의 정적 파일은 public 폴더에 담겨 있기 때문에 바로 볼 수 있게 합니다.
+
+### 5.5. toast ui 이미지 삽입 시 링크 길이
+  - 게시글 작성 시 이미지를 삽입했을 때, base64로 인코딩하여 굉장히 긴 경로를 반환하였습니다.
+  - 해결방안: 이미지를 올렸을 때, AWS S3에 이미지가 저장되도록 하고, 저장된 URL를 response로 받아오도록 하여 해결하였습니다.
+
+  ```javascript
+  export default {
+    data() {
+      return {
+        editor: null,
+      };
+    },
+
+    mounted() {
+      const questionStore = useQuestionStore();
+      this.editor = new Editor({
+        el: document.querySelector('#editor'),
+        height: '570px',
+        initialEditType: 'markdown',
+        initialValue:
+          '```\n' +
+          questionStore.inputQuestionContent +
+          '\n```' +
+          '\n\n내용을 마크다운 형식으로 입력해주세요!\n질문을 등록하면 GPT의 답변을 자동으로 받아볼 수 있습니다. :)',
+        previewStyle: 'vertical',
+        hooks: {
+          addImageBlobHook: addImageBlobHook,
+        },
+        plugins: [colorSyntax, fontSize],
+      });
+
+      this.editor.on('change', () => {
+        // 변경된 내용을 부모 컴포넌트로 전달
+        this.$emit('editor-content-updated', this.editor.getMarkdown());
+      });
+    },
+  };
+
+  const addImageBlobHook = async (blob, callback) => {
+    const formData = new FormData();
+    formData.append('file', blob);
+
+    await axios
+      .post('/image', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        const uploadURL = res.data.data.url;
+        callback(uploadURL, '사진');
+      })
+      .catch((e) => {
+        callback('', '이미지 업로드 실패');
+      });
+  };
+  ```
+
+### 5.6. onMounted가 곧바로 렌더링되지 않던 현상
+  - 마이페이지 화면에 입장하는 순간 곧바로 data가 렌더링되지 않는 문제가 발생했습니다.
+  - 해당 부분만 `MyProfileWindow.vue`로 따로 분리하여 `MyProfile.vue` 맨 하단에 `<MyProfileWindow />`로 작성해 자식 컴포넌트처럼 구성해보기도 했지만 결과는 같았습니다.
+  - 해결방안: 렌더링 순서만 바꾸면 되지 않겠나 하는 생각에 `onMounted`를 `onBeforeMount`로 수정했는데 해결이 되었습니다.
