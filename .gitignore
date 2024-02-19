@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vue,java,macos,windows,eclipse,intellij,visualstudiocode,vuejs
 # Edit at https://www.toptal.com/developers/gitignore?templates=vue,java,macos,windows,eclipse,intellij,visualstudiocode,vuejs
 
+exec/
+exec/*
+
 ### Eclipse ###
 .metadata
 bin/
