@@ -1,4 +1,4 @@
-![image](/uploads/517fb310b0b1f402ef5c1576aa3a41fd/image.png){: width="800"}
+![1](https://github.com/jinddobaegi/decode/assets/139422554/46284923-1bff-4c03-b1cb-af9e219874c4)
 
 
 
@@ -61,23 +61,23 @@
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 
 ## :balloon: Service Layout
-| ![1_main](/uploads/8f7dfe10f2526c39a2899f92357e298e/1_main.gif)|![4_login](/uploads/913e903bebb8f2bec7a9e57a07b06972/4_login.gif)|
+|![2](https://github.com/jinddobaegi/decode/assets/139422554/db8dd776-2d4b-4e02-b4d3-0d9879c4a2b2)|![3](https://github.com/jinddobaegi/decode/assets/139422554/5cf6798e-725d-429d-b5bb-20eeafdfe434)|
 |:---------------------------------------------------------:|:-------------------------------------------------------:|
 |                     Main Page                             |                     Login                               |
 
-| ![16_1_mypage_tab](/uploads/ba1350c725389994c98e189aefdd3eb0/16_1_mypage_tab.gif) | ![15_rank_search](/uploads/cb12a50e22becbf3a815eb7000bb8928/15_rank_search.gif) |
+|![4](https://github.com/jinddobaegi/decode/assets/139422554/611ddf5e-63b1-4283-a2d8-b954ab56f9b5)|![5](https://github.com/jinddobaegi/decode/assets/139422554/b6d84687-e79d-4a6f-816a-d54773853b5c)|
 |:---------------------------------------------------------:|:-------------------------------------------------------:|
 |                     Profile                               |                      Ranking                            |
 
-|![6_create_title](/uploads/c2cf993236a6d1642f4f7a892e3fb9d6/6_create_title.gif)|![7_2_gpt_sof_answer](/uploads/fc8031de37820cb21e2a907f6d81facd/7_2_gpt_sof_answer.gif)|
+|![6](https://github.com/jinddobaegi/decode/assets/139422554/5a604cc1-776d-4176-8386-acfb1882a5f8)|![7](https://github.com/jinddobaegi/decode/assets/139422554/9d644499-2ed2-4c6d-ac1f-5b27dd90be54)|
 |:---------------------------------------------------------:|:-------------------------------------------------------:|
 |                     Question                              |                       Answer                            |
 
-|![5_board_search](/uploads/efa29921c5e5a8db5522f3af5071fd29/5_board_search.gif)|![14_2_screen_share](/uploads/8179230f2f1a90516e6efa0f0dd8ebb0/14_2_screen_share.gif)|
+|![8](https://github.com/jinddobaegi/decode/assets/139422554/d0bf2bd4-606c-4d3a-ad38-57f56207a541)|![9](https://github.com/jinddobaegi/decode/assets/139422554/a9e9fc50-6fb4-43ff-b432-9f261cc69874)|
 |:---------------------------------------------------------:|:-------------------------------------------------------:|
 |                     Search                                |                     Screen Share                        |
 
-|![13_chatting](/uploads/bea5e484115ae12015762a3a883cb062/13_chatting.gif)|
+|![10](https://github.com/jinddobaegi/decode/assets/139422554/3195424f-db96-4b40-8960-c7dfb36e932b)|
 |:---------------------------------------------------------:|
 |                          Chat                             |
 
